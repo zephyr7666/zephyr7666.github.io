@@ -1,0 +1,1102 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OVERFLOW 动漫 - 官方品牌门户,原创动画高清内容社区</title>
+<meta name="description" content="OVERFLOW 动漫官方网站，专注原创动画与二次元内容的品牌视频门户，汇聚精品动画、创作者访谈与社区共赏体验。">
+<meta name="keywords" content="OVERFLOW 动漫,官方网站,原创动画,二次元,内容社区,动画品牌">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23151a2b'/%3E%3Ccircle cx='27' cy='32' r='13' fill='%23ff5a7a'/%3E%3Ccircle cx='40' cy='32' r='13' fill='%2367e8f9' opacity='0.75'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ovf-bg:#0e1220;
+  --ovf-bg-soft:#151a2e;
+  --ovf-card:#1b2136;
+  --ovf-line:rgba(255,255,255,.09);
+  --ovf-text:#eef1fa;
+  --ovf-muted:#9aa3c0;
+  --ovf-pink:#ff5a7a;
+  --ovf-cyan:#67e8f9;
+  --ovf-amber:#ffc857;
+  --ovf-violet:#9b8cff;
+  --ovf-radius:18px;
+  --ovf-shadow:0 18px 46px rgba(0,0,0,.42);
+  --ovf-head-h:64px;
+  --ovf-notice-h:40px;
+  --ovf-sticky:calc(var(--ovf-head-h) + var(--ovf-notice-h));
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
+  background:
+    radial-gradient(1100px 620px at 88% -6%,rgba(155,140,255,.20),transparent 62%),
+    radial-gradient(900px 560px at -8% 12%,rgba(103,232,249,.14),transparent 60%),
+    linear-gradient(180deg,#0b0f1b 0%,var(--ovf-bg) 42%,#0b0f1b 100%);
+  color:var(--ovf-text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+section{scroll-margin-top:calc(var(--ovf-sticky) + 18px)}
+.ovf-wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+
+/* ---------- 吸顶公告 + 页头 ---------- */
+.ovf-topstack{position:sticky;top:0;z-index:90}
+.ovf-notice{
+  background:linear-gradient(90deg,#ff5a7a,#9b8cff 58%,#67e8f9);
+  color:#0b0f1b;font-size:13px;font-weight:700;
+  height:var(--ovf-notice-h);display:flex;align-items:center;
+}
+.ovf-notice .ovf-wrap{display:flex;align-items:center;gap:12px;overflow:hidden}
+.ovf-notice-tag{background:#0b0f1b;color:#fff;border-radius:999px;padding:2px 10px;font-size:11px;letter-spacing:.08em;flex:0 0 auto}
+.ovf-notice-text{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ovf-header{
+  height:var(--ovf-head-h);
+  background:rgba(13,17,30,.86);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--ovf-line);
+}
+.ovf-header .ovf-wrap{height:100%;display:flex;align-items:center;gap:22px}
+.ovf-logo{display:flex;align-items:center;gap:10px;flex:0 0 auto}
+.ovf-logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--ovf-pink),var(--ovf-violet));display:grid;place-items:center;font-weight:900;font-size:15px;color:#fff;box-shadow:0 6px 18px rgba(255,90,122,.35)}
+.ovf-logo-txt{font-weight:900;font-size:17px;letter-spacing:.06em}
+.ovf-logo-txt em{font-style:normal;color:var(--ovf-cyan)}
+.ovf-logo-sub{display:block;font-size:10px;letter-spacing:.24em;color:var(--ovf-muted);font-weight:600}
+.ovf-nav{display:flex;align-items:center;gap:4px;margin-left:6px}
+.ovf-nav a{padding:8px 12px;border-radius:10px;font-size:14px;color:var(--ovf-muted);font-weight:600;transition:.2s}
+.ovf-nav a:hover,.ovf-nav a.is-active{color:#fff;background:rgba(255,255,255,.08)}
+.ovf-search{margin-left:auto;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.06);border:1px solid var(--ovf-line);border-radius:999px;padding:5px 6px 5px 14px;min-width:236px}
+.ovf-search input{background:none;border:none;outline:none;color:var(--ovf-text);font-size:13px;width:150px}
+.ovf-search input::placeholder{color:#6d7699}
+.ovf-search button{background:linear-gradient(135deg,var(--ovf-pink),var(--ovf-violet));color:#fff;border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:700}
+.ovf-burger{display:none;margin-left:auto;width:40px;height:40px;border-radius:10px;border:1px solid var(--ovf-line);background:rgba(255,255,255,.06);font-size:18px}
+.ovf-search-tip{font-size:12px;color:var(--ovf-amber);min-height:18px;margin-top:8px}
+
+/* ---------- 通用标题 ---------- */
+.ovf-sec{padding:76px 0}
+.ovf-sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:34px;flex-wrap:wrap}
+.ovf-kicker{display:inline-flex;align-items:center;gap:8px;font-size:12px;letter-spacing:.22em;color:var(--ovf-cyan);font-weight:700;text-transform:uppercase}
+.ovf-kicker::before{content:"";width:22px;height:2px;background:var(--ovf-cyan);border-radius:2px}
+h2.ovf-h2{font-size:clamp(24px,3.4vw,36px);line-height:1.25;font-weight:900;letter-spacing:.01em;margin-top:10px}
+h2.ovf-h2 span{color:var(--ovf-pink)}
+.ovf-sec-desc{color:var(--ovf-muted);max-width:520px;font-size:14.5px}
+h3.ovf-h3{font-size:17px;font-weight:800;line-height:1.45}
+
+/* ---------- 首屏 ---------- */
+.ovf-hero{padding:64px 0 20px;position:relative;overflow:hidden}
+.ovf-hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.ovf-badge{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(255,90,122,.45);background:rgba(255,90,122,.12);color:#ffc0cd;border-radius:999px;padding:5px 14px;font-size:12.5px;font-weight:700;letter-spacing:.06em}
+.ovf-hero h1{font-size:clamp(38px,6.4vw,68px);line-height:1.04;font-weight:900;letter-spacing:-.01em;margin:20px 0 8px;background:linear-gradient(120deg,#fff 20%,#ffb9c8 55%,#9fe9f5 96%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ovf-hero-slogan{font-size:clamp(15px,1.7vw,19px);font-weight:700;color:var(--ovf-amber);letter-spacing:.04em;margin-bottom:18px}
+.ovf-hero-intro{color:var(--ovf-muted);font-size:15px;max-width:560px}
+.ovf-hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
+.ovf-btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:12px 26px;font-weight:800;font-size:14.5px;transition:.22s;border:1px solid transparent}
+.ovf-btn-primary{background:linear-gradient(135deg,var(--ovf-pink),var(--ovf-violet));color:#fff;box-shadow:0 14px 30px rgba(255,90,122,.30)}
+.ovf-btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 38px rgba(255,90,122,.42)}
+.ovf-btn-ghost{border-color:rgba(255,255,255,.20);color:#dfe4f5;background:rgba(255,255,255,.04)}
+.ovf-btn-ghost:hover{border-color:var(--ovf-cyan);color:var(--ovf-cyan)}
+.ovf-hero-stats{display:flex;gap:30px;margin-top:34px;flex-wrap:wrap}
+.ovf-stat b{display:block;font-size:26px;font-weight:900;color:#fff;letter-spacing:.01em}
+.ovf-stat span{font-size:12.5px;color:var(--ovf-muted)}
+.ovf-hero-visual{position:relative}
+.ovf-hero-frame{border-radius:26px;overflow:hidden;border:1px solid var(--ovf-line);box-shadow:var(--ovf-shadow);position:relative}
+.ovf-hero-frame img{width:100%;height:auto}
+.ovf-hero-float{position:absolute;left:-18px;bottom:26px;background:rgba(18,23,40,.92);border:1px solid var(--ovf-line);border-radius:16px;padding:12px 16px;backdrop-filter:blur(10px);box-shadow:var(--ovf-shadow)}
+.ovf-hero-float b{display:block;font-size:15px;color:var(--ovf-cyan)}
+.ovf-hero-float span{font-size:12px;color:var(--ovf-muted)}
+.ovf-hero-tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.ovf-tag-chip{border:1px solid var(--ovf-line);background:rgba(255,255,255,.05);border-radius:999px;padding:6px 14px;font-size:12.5px;color:#c3cbe6;font-weight:600}
+
+/* ---------- 关键词解析长文 ---------- */
+.ovf-about{padding:70px 0}
+.ovf-about-box{background:linear-gradient(160deg,rgba(27,33,54,.95),rgba(15,19,33,.9));border:1px solid var(--ovf-line);border-radius:26px;padding:clamp(26px,4vw,54px)}
+.ovf-prose{columns:2;column-gap:48px;color:#c2c9e0;font-size:14.8px;margin-top:24px}
+.ovf-prose p{margin-bottom:18px;break-inside:avoid}
+.ovf-prose strong{color:var(--ovf-cyan);font-weight:800}
+.ovf-prose em{color:var(--ovf-amber);font-style:normal;font-weight:700}
+
+/* ---------- 焦点内容 ---------- */
+.ovf-focus-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:22px}
+.ovf-focus-feature{border-radius:var(--ovf-radius);overflow:hidden;position:relative;border:1px solid var(--ovf-line);background:var(--ovf-card)}
+.ovf-focus-feature img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/10}
+.ovf-focus-feature .ovf-focus-body{position:absolute;inset:auto 0 0 0;padding:26px;background:linear-gradient(0deg,rgba(7,10,18,.95) 12%,rgba(7,10,18,.55) 62%,transparent)}
+.ovf-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:66px;height:66px;border-radius:50%;background:rgba(255,90,122,.92);display:grid;place-items:center;box-shadow:0 12px 34px rgba(255,90,122,.5);transition:.24s}
+.ovf-focus-feature:hover .ovf-play{transform:translate(-50%,-50%) scale(1.1)}
+.ovf-play::after{content:"";border-style:solid;border-width:11px 0 11px 18px;border-color:transparent transparent transparent #fff;margin-left:4px}
+.ovf-focus-mini-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.ovf-focus-mini{background:var(--ovf-card);border:1px solid var(--ovf-line);border-radius:14px;overflow:hidden;transition:.24s}
+.ovf-focus-mini:hover{transform:translateY(-4px);border-color:rgba(255,90,122,.5)}
+.ovf-focus-mini img{aspect-ratio:16/9;width:100%;object-fit:cover}
+.ovf-focus-mini .ovf-fm-body{padding:13px 14px 15px}
+.ovf-focus-mini h3{font-size:14px;font-weight:800;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.ovf-focus-mini .ovf-meta{font-size:11.5px;color:var(--ovf-muted);margin-top:7px;display:flex;gap:10px}
+
+/* ---------- 视频卡流 ---------- */
+.ovf-video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ovf-vcard{background:var(--ovf-card);border:1px solid var(--ovf-line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:.26s}
+.ovf-vcard:hover{transform:translateY(-6px);border-color:rgba(103,232,249,.45);box-shadow:0 22px 44px rgba(0,0,0,.45)}
+.ovf-vcard-cover{position:relative;overflow:hidden}
+.ovf-vcard-cover img{aspect-ratio:16/9;width:100%;object-fit:cover;transition:.4s}
+.ovf-vcard:hover .ovf-vcard-cover img{transform:scale(1.05)}
+.ovf-vcover-tag{position:absolute;top:10px;left:10px;background:rgba(11,15,27,.85);border:1px solid rgba(255,255,255,.16);color:var(--ovf-cyan);font-size:11px;font-weight:700;padding:3px 10px;border-radius:999px;backdrop-filter:blur(6px)}
+.ovf-vcover-dur{position:absolute;bottom:10px;right:10px;background:rgba(11,15,27,.85);font-size:11px;padding:2px 8px;border-radius:6px;color:#dfe4f5;font-weight:600}
+.ovf-vcard-body{padding:15px 16px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
+.ovf-vcard-body h3{font-size:15px;font-weight:800;line-height:1.5}
+.ovf-vcard-body p{font-size:13px;color:var(--ovf-muted);line-height:1.66}
+.ovf-vcard-foot{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:12px;color:#8b95b5;flex-wrap:wrap}
+.ovf-avatar{width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:11px;font-weight:800;color:#0b0f1b;flex:0 0 auto}
+.ovf-card-actions{display:flex;align-items:center;gap:8px;margin-top:4px}
+.ovf-act{border:1px solid var(--ovf-line);background:rgba(255,255,255,.04);border-radius:999px;padding:4px 11px;font-size:12px;display:inline-flex;align-items:center;gap:5px;transition:.18s;color:#c3cbe6}
+.ovf-act:hover{border-color:var(--ovf-pink);color:#fff}
+.ovf-act.is-liked{background:rgba(255,90,122,.18);border-color:var(--ovf-pink);color:#ffb9c8}
+.ovf-act.is-saved{background:rgba(255,200,87,.16);border-color:var(--ovf-amber);color:var(--ovf-amber)}
+
+/* ---------- 专题 ---------- */
+.ovf-topic-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ovf-topic{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--ovf-line);min-height:250px;display:flex;align-items:flex-end;transition:.26s}
+.ovf-topic:nth-child(1){grid-column:span 2;min-height:300px}
+.ovf-topic:hover{transform:translateY(-4px)}
+.ovf-topic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ovf-topic-body{position:relative;padding:20px;background:linear-gradient(0deg,rgba(7,10,18,.94) 20%,transparent)}
+.ovf-topic-status{display:inline-block;font-size:11px;font-weight:700;color:#0b0f1b;background:var(--ovf-amber);border-radius:6px;padding:2px 9px;margin-bottom:8px}
+.ovf-topic h3{font-size:16px;font-weight:900;margin-bottom:5px}
+.ovf-topic p{font-size:12.5px;color:#b7c0da}
+
+/* ---------- 创作者 ---------- */
+.ovf-creator-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.ovf-creator{background:linear-gradient(170deg,rgba(27,33,54,.9),rgba(15,19,33,.9));border:1px solid var(--ovf-line);border-radius:18px;padding:22px;text-align:center;transition:.24s}
+.ovf-creator:hover{transform:translateY(-5px);border-color:rgba(155,140,255,.55)}
+.ovf-creator-av{width:70px;height:70px;border-radius:22px;margin:0 auto 14px;display:grid;place-items:center;font-size:24px;font-weight:900;color:#0b0f1b;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.ovf-creator h3{font-size:16px;font-weight:900}
+.ovf-creator .ovf-cr-field{font-size:12px;color:var(--ovf-cyan);font-weight:700;margin:3px 0 9px}
+.ovf-creator p{font-size:12.5px;color:var(--ovf-muted);line-height:1.68;min-height:62px}
+.ovf-creator-data{display:flex;justify-content:center;gap:16px;margin:12px 0 14px;font-size:12px;color:#a7b0cc}
+.ovf-creator-data b{color:#fff;display:block;font-size:14px}
+.ovf-creator .ovf-btn{padding:7px 18px;font-size:12.5px;width:100%;justify-content:center}
+
+/* ---------- 故事随笔 ---------- */
+.ovf-story-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ovf-story{background:rgba(255,255,255,.035);border:1px solid var(--ovf-line);border-left:3px solid var(--ovf-violet);border-radius:14px;padding:24px}
+.ovf-story:nth-child(2){border-left-color:var(--ovf-amber)}
+.ovf-story:nth-child(3){border-left-color:var(--ovf-cyan)}
+.ovf-story h3{font-size:16px;font-weight:800;margin-bottom:10px}
+.ovf-story p{font-size:13.5px;color:#b7c0da;line-height:1.8}
+.ovf-story .ovf-story-sign{display:block;margin-top:14px;font-size:12px;color:var(--ovf-muted)}
+
+/* ---------- 用户评价 ---------- */
+.ovf-review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.ovf-review{background:var(--ovf-bg-soft);border:1px solid var(--ovf-line);border-radius:16px;padding:20px;position:relative}
+.ovf-review:nth-child(2n){background:rgba(155,140,255,.07)}
+.ovf-review:nth-child(3n){background:rgba(103,232,249,.06)}
+.ovf-review p{font-size:13.5px;color:#c7cee4;line-height:1.8}
+.ovf-review-foot{display:flex;align-items:center;gap:9px;margin-top:14px;font-size:12px;color:var(--ovf-muted)}
+.ovf-review-stars{color:var(--ovf-amber);font-size:12px;letter-spacing:2px}
+
+/* ---------- 榜单 ---------- */
+.ovf-rank-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.ovf-rank{background:var(--ovf-card);border:1px solid var(--ovf-line);border-radius:16px;padding:22px}
+.ovf-rank h3{font-size:15px;font-weight:900;color:var(--ovf-cyan);margin-bottom:14px}
+.ovf-rank ol{list-style:none;display:flex;flex-direction:column;gap:11px}
+.ovf-rank li{display:flex;gap:11px;align-items:center;font-size:13px;color:#c7cee4}
+.ovf-rank-num{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;font-size:11px;font-weight:900;background:rgba(255,255,255,.09);color:#fff;flex:0 0 auto}
+.ovf-rank li:nth-child(1) .ovf-rank-num{background:var(--ovf-pink);color:#0b0f1b}
+.ovf-rank li:nth-child(2) .ovf-rank-num{background:var(--ovf-amber);color:#0b0f1b}
+.ovf-rank li:nth-child(3) .ovf-rank-num{background:var(--ovf-cyan);color:#0b0f1b}
+
+/* ---------- FAQ ---------- */
+.ovf-faq{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+.ovf-faq details{background:var(--ovf-bg-soft);border:1px solid var(--ovf-line);border-radius:13px;padding:0 20px;transition:.2s}
+.ovf-faq details[open]{border-color:rgba(255,90,122,.5);background:rgba(255,90,122,.055)}
+.ovf-faq summary{cursor:pointer;padding:16px 0;font-weight:800;font-size:14.5px;list-style:none;display:flex;justify-content:space-between;gap:14px;align-items:center}
+.ovf-faq summary::-webkit-details-marker{display:none}
+.ovf-faq summary::after{content:"+";font-size:19px;color:var(--ovf-pink);font-weight:400;flex:0 0 auto}
+.ovf-faq details[open] summary::after{content:"−"}
+.ovf-faq details p{padding:0 0 18px;color:var(--ovf-muted);font-size:13.5px;line-height:1.8}
+
+/* ---------- 联系/投稿 ---------- */
+.ovf-contact{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:center;background:linear-gradient(150deg,rgba(255,90,122,.16),rgba(155,140,255,.13) 55%,rgba(103,232,249,.12));border:1px solid var(--ovf-line);border-radius:24px;padding:clamp(26px,4vw,48px)}
+.ovf-contact-info ul{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:11px;font-size:13.5px;color:#cfd6ea}
+.ovf-contact-info li strong{color:var(--ovf-cyan);margin-right:8px;font-weight:800}
+.ovf-submit-card{background:rgba(11,15,27,.66);border:1px solid var(--ovf-line);border-radius:18px;padding:24px}
+.ovf-submit-card h3{font-size:17px;font-weight:900;margin-bottom:10px}
+.ovf-submit-card p{font-size:13px;color:var(--ovf-muted);margin-bottom:16px}
+.ovf-submit-actions{display:flex;gap:12px;flex-wrap:wrap}
+
+/* ---------- 合作伙伴 ---------- */
+.ovf-partners{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.ovf-partner{border:1px solid var(--ovf-line);background:rgba(255,255,255,.04);border-radius:12px;padding:13px 26px;font-size:13.5px;font-weight:700;color:#b7c0da;letter-spacing:.04em;transition:.2s}
+.ovf-partner:hover{color:#fff;border-color:var(--ovf-cyan);background:rgba(103,232,249,.09)}
+
+/* ---------- 页脚 ---------- */
+.ovf-footer{border-top:1px solid var(--ovf-line);background:rgba(8,11,20,.8);padding:54px 0 26px;margin-top:20px}
+.ovf-footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:34px}
+.ovf-footer h4{font-size:13px;font-weight:900;letter-spacing:.12em;color:var(--ovf-cyan);margin-bottom:15px}
+.ovf-footer p,.ovf-footer li{font-size:13px;color:var(--ovf-muted);line-height:1.9}
+.ovf-footer ul{list-style:none}
+.ovf-footer a:hover{color:var(--ovf-pink)}
+.ovf-footer-bottom{border-top:1px solid var(--ovf-line);margin-top:38px;padding-top:20px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#7a84a5}
+
+/* ---------- 弹窗/Toast/回顶 ---------- */
+.ovf-modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(4,6,12,.78);backdrop-filter:blur(6px)}
+.ovf-modal.is-open{display:flex}
+.ovf-modal-box{background:var(--ovf-bg-soft);border:1px solid var(--ovf-line);border-radius:18px;padding:28px;width:min(480px,100%);box-shadow:var(--ovf-shadow);position:relative}
+.ovf-modal-box h3{font-size:18px;font-weight:900;margin-bottom:10px}
+.ovf-modal-box p{font-size:13.5px;color:var(--ovf-muted);line-height:1.8}
+.ovf-modal-close{position:absolute;top:14px;right:14px;width:30px;height:30px;border-radius:8px;background:rgba(255,255,255,.08);font-size:16px}
+.ovf-modal-box textarea{width:100%;min-height:110px;margin-top:14px;background:rgba(255,255,255,.05);border:1px solid var(--ovf-line);border-radius:10px;color:var(--ovf-text);padding:12px;font-family:inherit;font-size:13px;resize:vertical;outline:none}
+.ovf-modal-actions{display:flex;gap:10px;margin-top:16px}
+.ovf-toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);background:rgba(27,33,54,.97);border:1px solid rgba(255,90,122,.55);color:#fff;padding:11px 22px;border-radius:999px;font-size:13.5px;font-weight:700;opacity:0;pointer-events:none;transition:.28s;z-index:300;box-shadow:var(--ovf-shadow)}
+.ovf-toast.is-show{opacity:1;transform:translate(-50%,0)}
+.ovf-totop{position:fixed;right:22px;bottom:26px;width:46px;height:46px;border-radius:14px;background:linear-gradient(135deg,var(--ovf-pink),var(--ovf-violet));color:#fff;font-size:18px;display:grid;place-items:center;box-shadow:0 12px 30px rgba(255,90,122,.4);opacity:0;pointer-events:none;transition:.28s;z-index:80}
+.ovf-totop.is-show{opacity:1;pointer-events:auto}
+
+/* ---------- 响应式 ---------- */
+@media(max-width:1024px){
+  .ovf-hero-grid{grid-template-columns:1fr;gap:34px}
+  .ovf-prose{columns:1}
+  .ovf-video-grid{grid-template-columns:repeat(2,1fr)}
+  .ovf-creator-grid{grid-template-columns:repeat(2,1fr)}
+  .ovf-topic-grid{grid-template-columns:repeat(2,1fr)}
+  .ovf-topic:nth-child(1){grid-column:span 2}
+  .ovf-story-grid{grid-template-columns:1fr}
+  .ovf-review-grid{grid-template-columns:1fr 1fr}
+  .ovf-rank-grid{grid-template-columns:1fr}
+  .ovf-footer-grid{grid-template-columns:1fr 1fr}
+  .ovf-contact{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .ovf-nav{position:fixed;top:calc(var(--ovf-sticky));left:0;right:0;flex-direction:column;align-items:stretch;background:rgba(11,15,27,.98);border-bottom:1px solid var(--ovf-line);padding:12px;gap:4px;display:none;z-index:95}
+  .ovf-nav.is-open{display:flex}
+  .ovf-nav a{padding:12px 14px}
+  .ovf-search{display:none}
+  .ovf-burger{display:block}
+  .ovf-focus-grid{grid-template-columns:1fr}
+  .ovf-focus-mini-grid{grid-template-columns:1fr 1fr}
+  .ovf-video-grid{grid-template-columns:1fr}
+  .ovf-topic-grid{grid-template-columns:1fr}
+  .ovf-topic:nth-child(1){grid-column:span 1}
+  .ovf-creator-grid{grid-template-columns:1fr}
+  .ovf-review-grid{grid-template-columns:1fr}
+  .ovf-footer-grid{grid-template-columns:1fr}
+  .ovf-hero-float{left:auto;right:12px;bottom:12px;padding:9px 13px}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="ovf-topstack">
+  <div class="ovf-notice">
+    <div class="ovf-wrap">
+      <span class="ovf-notice-tag">更新</span>
+      <span class="ovf-notice-text">11 月 19 日新增《午夜信号塔》第 3 话与幕后花絮；「冬季原创新作孵化」投稿通道已开启，创作挑战赛报名中。</span>
+    </div>
+  </div>
+  <header class="ovf-header">
+    <div class="ovf-wrap">
+      <a class="ovf-logo" href="#ovf-hero">
+        <span class="ovf-logo-mark">OV</span>
+        <span>
+          <span class="ovf-logo-txt">OVERFLOW<em>动漫</em></span>
+          <span class="ovf-logo-sub">OFFICIAL PORTAL</span>
+        </span>
+      </a>
+      <nav class="ovf-nav" id="ovf-nav">
+        <a href="#ovf-hero" class="is-active">首页</a>
+        <a href="#ovf-focus">焦点内容</a>
+        <a href="#ovf-videos">热门视频</a>
+        <a href="#ovf-topics">专题企划</a>
+        <a href="#ovf-creators">创作者</a>
+        <a href="#ovf-rank">榜单</a>
+        <a href="#ovf-faq">帮助</a>
+        <a href="#ovf-contact">联系</a>
+      </nav>
+      <div class="ovf-search">
+        <input id="ovf-search-input" type="search" placeholder="搜索作品 / 创作者 / 专题" aria-label="站内搜索">
+        <button type="button" id="ovf-search-btn">搜索</button>
+      </div>
+      <button class="ovf-burger" id="ovf-burger" aria-label="展开导航" aria-expanded="false">☰</button>
+    </div>
+  </header>
+</div>
+
+<main>
+
+  <!-- 首屏 -->
+  <section class="ovf-hero" id="ovf-hero">
+    <div class="ovf-wrap">
+      <div class="ovf-hero-grid">
+        <div>
+          <span class="ovf-badge">OVERFLOW 动漫 · 官方品牌门户</span>
+          <h1>OVERFLOW 动漫</h1>
+          <p class="ovf-hero-slogan">让每一帧溢出想象力的边界</p>
+          <p class="ovf-hero-intro">
+            OVERFLOW 动漫是持续运营的原创动画品牌与内容社区。作为官方网站，我们以企业级制作标准与长期主义的创作观，为观众与创作者搭建一座真正属于二次元的影像客厅。这里既有独立短片的锋芒，也有长线企划的耐心；既呈现精品内容，也记录每一次笨拙而真实的尝试。
+          </p>
+          <div class="ovf-hero-btns">
+            <a class="ovf-btn ovf-btn-primary" href="#ovf-focus">进入焦点内容</a>
+            <a class="ovf-btn ovf-btn-ghost" href="#ovf-creators">认识创作者</a>
+            <button class="ovf-btn ovf-btn-ghost" type="button" data-ovf-share="OVERFLOW 动漫官方品牌门户">分享本站</button>
+          </div>
+          <div class="ovf-hero-stats">
+            <div class="ovf-stat"><b>1,280+</b><span>原创动画作品</span></div>
+            <div class="ovf-stat"><b>86 万</b><span>社区注册用户</span></div>
+            <div class="ovf-stat"><b>320 位</b><span>签约与入驻创作者</span></div>
+          </div>
+          <div class="ovf-hero-tags">
+            <span class="ovf-tag-chip">原创企划</span>
+            <span class="ovf-tag-chip">分镜工作流</span>
+            <span class="ovf-tag-chip">独立短片</span>
+            <span class="ovf-tag-chip">声优访谈</span>
+            <span class="ovf-tag-chip">社区共赏</span>
+          </div>
+        </div>
+        <div class="ovf-hero-visual">
+          <div class="ovf-hero-frame">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='g1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23221a44'/%3E%3Cstop offset='0.55' stop-color='%233b1f4e'/%3E%3Cstop offset='1' stop-color='%2310182e'/%3E%3C/linearGradient%3E%3CradialGradient id='g2' cx='0.72' cy='0.28' r='0.6'%3E%3Cstop offset='0' stop-color='%23ff5a7a' stop-opacity='0.9'/%3E%3Cstop offset='1' stop-color='%23ff5a7a' stop-opacity='0'/%3E%3C/radialGradient%3E%3CradialGradient id='g3' cx='0.24' cy='0.74' r='0.55'%3E%3Cstop offset='0' stop-color='%2367e8f9' stop-opacity='0.75'/%3E%3Cstop offset='1' stop-color='%2367e8f9' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23g1)'/%3E%3Crect width='800' height='500' fill='url(%23g2)'/%3E%3Crect width='800' height='500' fill='url(%23g3)'/%3E%3Cg stroke='%23ffffff' stroke-opacity='0.16'%3E%3Cpath d='M0 380 L800 250'/%3E%3Cpath d='M0 300 L800 170'/%3E%3Cpath d='M0 460 L800 330'/%3E%3C/g%3E%3Ccircle cx='540' cy='210' r='96' fill='none' stroke='%23ffc857' stroke-width='2.5' stroke-dasharray='10 12' opacity='0.8'/%3E%3Ccircle cx='540' cy='210' r='62' fill='none' stroke='%2367e8f9' stroke-width='2' opacity='0.85'/%3E%3Ccircle cx='540' cy='210' r='22' fill='%23ff5a7a'/%3E%3Cpath d='M300 420 q40 -140 120 -170 q70 -25 110 30' fill='none' stroke='%239b8cff' stroke-width='4' stroke-linecap='round' opacity='0.85'/%3E%3Cg fill='%23ffffff' opacity='0.85'%3E%3Ccircle cx='150' cy='130' r='3'/%3E%3Ccircle cx='210' cy='90' r='2'/%3E%3Ccircle cx='690' cy='380' r='2.6'/%3E%3Ccircle cx='640' cy='90' r='2'/%3E%3Ccircle cx='90' cy='400' r='2.4'/%3E%3C/g%3E%3Ctext x='60' y='90' fill='%23ffffff' font-size='24' font-family='sans-serif' font-weight='bold' opacity='0.94'%3EOVERFLOW%3C/text%3E%3Ctext x='60' y='120' fill='%2367e8f9' font-size='13' font-family='sans-serif' letter-spacing='4'%3EANIME BRAND VISUAL%3C/text%3E%3C/svg%3E" alt="OVERFLOW 动漫品牌主视觉：星轨与几何图形构成的原创动画意象" width="800" height="500">
+          </div>
+          <div class="ovf-hero-float">
+            <b>本周新上线 · 7 部</b>
+            <span>原创短片与系列企划同步更新</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 品牌解析长文 -->
+  <section class="ovf-about" id="ovf-about">
+    <div class="ovf-wrap">
+      <div class="ovf-about-box">
+        <span class="ovf-kicker">Brand Insight · 品牌解析</span>
+        <h2 class="ovf-h2">关于 <span>OVERFLOW 动漫</span>：一个原创动画品牌如何被理解</h2>
+        <div class="ovf-prose">
+          <p>OVERFLOW 动漫这个关键词，最初诞生于一次小型创作聚会。几位分镜师、原画师与声音设计者想为自己的作品找一个能共同使用的品牌名，于是有了「OVERFLOW」——溢出。它既是画面的溢出：让情绪与想象突破构图边界；也是人的溢出：让创作者不再被困在单打独斗的流水线上。作为国内较早以<strong>动画内容社区</strong>形态运作的原创品牌，我们希望官方网站不只是一个入口，而是一份可以被阅读的档案，记录每一部作品的来处。</p>
+          <p>从内容结构上看，OVERFLOW 动漫围绕三条主线展开：<em>原创短片</em>、<em>系列企划</em>与<em>创作者纪实</em>。原创短片强调个人表达与实验性，时长多在 3 到 12 分钟；系列企划则面向长线叙事，通常以季度为单位推进，从世界观设定、角色动机到配乐方案形成完整闭环；创作者纪实以访谈与幕后为主，把「怎么做出来的」讲清楚。这三条主线共同构成品牌的内容生态，也让观众在同一个平台里既能看成品，也能理解过程。</p>
+          <p>我们相信，一部动画的价值并不完全取决于播放那一刻的完成度，而在于它是否留下了可追溯的思考痕迹。因此在 OVERFLOW 动漫官方网站上，每一部作品都配有制作说明、分镜节选与主创笔记。这些内容并不追求「攻略感」，而是希望把创作还原成一件可以被讨论、被学习、被记住的事情。对初入行的年轻创作者来说，这些材料比任何励志口号都更有力量。</p>
+          <p>在视觉与调性上，OVERFLOW 动漫选择深色底与高饱和荧光色的组合。这不是为了迎合潮流，而是出于内容呈现的实际考虑：动画画面本身色彩丰富，深色界面能减少干扰，让封面与影像更突出；粉红与青蓝的对比，则对应品牌性格中的两极——<strong>热烈</strong>与<strong>冷静</strong>。我们希望第一眼是锋利的，越看越觉得踏实。</p>
+          <p>品牌力来自持续运营。OVERFLOW 动漫每年固定推出四季企划，每季包含若干独立单元与一部重点系列；同时保留常设的社区板块，鼓励观众参与投票、报名创作挑战、上传自己的练习作品。我们不把用户当作被动的观看者，而视为内容生态的一部分。一个成熟的动画品牌，应该既能提供精品内容，也能提供让人想动手的冲动。</p>
+          <p>关于「动漫」这个行业本身，我们也愿意诚实一点：它是一个需要耐心、协作与成本意识的行业。OVERFLOW 动漫在内部推行标准化制片流程，从立项评审、剧本围读、分镜会到成片质检，每一环都有明确责任人；对外则通过官方网站公开部分制作文档，接受同行与观众的检验。我们相信透明不会削弱品牌，反而会积累口碑。值得信赖不是一句口号，而是一次次按时上线、一次次如实标注团队名单。</p>
+          <p>最后想说的是「社区」。OVERFLOW 动漫的社区不追求热闹，更看重真实。我们鼓励长评论、鼓励指出问题、鼓励在作品下面留下具体的感受而不是一句「好看」。因为我们清楚，动画是一门需要反馈的艺术：观众的每一次认真回应，都会成为创作者下一部作品里的某个细节。这就是我们对「用户至上」的理解——不是讨好，而是尊重。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 焦点内容 -->
+  <section class="ovf-sec" id="ovf-focus">
+    <div class="ovf-wrap">
+      <div class="ovf-sec-head">
+        <div>
+          <span class="ovf-kicker">Spotlight · 焦点</span>
+          <h2 class="ovf-h2">本期 <span>焦点内容</span></h2>
+        </div>
+        <p class="ovf-sec-desc">由编辑团队与社区共同选出的重点作品，覆盖系列企划、独立短片与幕后纪实三种形态。</p>
+      </div>
+      <div class="ovf-focus-grid">
+        <article class="ovf-focus-feature">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='f1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231b2450'/%3E%3Cstop offset='1' stop-color='%23512b6e'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23f1)'/%3E%3Cg fill='none' stroke='%2367e8f9' stroke-opacity='0.55' stroke-width='2'%3E%3Cpath d='M100 400 Q200 220 340 250 T620 160'/%3E%3Cpath d='M80 470 Q240 340 400 360 T720 250'/%3E%3C/g%3E%3Ccircle cx='600' cy='170' r='70' fill='%23ff5a7a' opacity='0.75'/%3E%3Ccircle cx='600' cy='170' r='102' fill='none' stroke='%23ffc857' stroke-width='2' stroke-dasharray='8 10'/%3E%3Cg fill='%23ffffff' opacity='0.8'%3E%3Ccircle cx='170' cy='120' r='2.5'/%3E%3Ccircle cx='260' cy='170' r='2'/%3E%3Ccircle cx='720' cy='400' r='2.5'/%3E%3C/g%3E%3Ctext x='60' y='80' fill='%23ffffff' font-size='26' font-family='sans-serif' font-weight='bold'%3E%E5%8D%88%E5%A4%9C%E4%BF%A1%E5%8F%B7%E5%A1%94%3C/text%3E%3Ctext x='60' y='110' fill='%2367e8f9' font-size='13' font-family='sans-serif' letter-spacing='3'%3EMIDNIGHT SIGNAL TOWER%3C/text%3E%3C/svg%3E" alt="焦点作品《午夜信号塔》第3话封面：深夜色天空下的信号塔与光盘">
+          <div class="ovf-focus-body">
+            <span class="ovf-topic-status">连载中 · 第 3 话</span>
+            <h3 class="ovf-h3">《午夜信号塔》：一座会回应的塔，与三个失眠的人</h3>
+            <p style="font-size:13px;color:#c9d0e6;margin-top:6px">OVERFLOW 动漫年度重点系列企划，以广播电波为线索，讲述城市夜晚的三段相遇。本话新增制作说明与分镜节选。</p>
+            <div class="ovf-card-actions">
+              <button class="ovf-act" type="button" data-ovf-like>♡ 喜欢 <span class="ovf-like-num">1,286</span></button>
+              <button class="ovf-act" type="button" data-ovf-save>☆ 收藏</button>
+              <button class="ovf-act" type="button" data-ovf-open="comment">评论</button>
+            </div>
+          </div>
+          <span class="ovf-play" aria-hidden="true"></span>
+        </article>
+        <div class="ovf-focus-mini-grid">
+          <article class="ovf-focus-mini">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%232a1c3d'/%3E%3Cg fill='%23ffc857' opacity='0.9'%3E%3Crect x='60' y='150' width='26' height='70' rx='4'/%3E%3Crect x='110' y='120' width='26' height='100' rx='4'/%3E%3Crect x='160' y='90' width='26' height='130' rx='4'/%3E%3C/g%3E%3Ccircle cx='360' cy='110' r='44' fill='%23ff5a7a' opacity='0.8'/%3E%3Cpath d='M40 230 H440' stroke='%2367e8f9' stroke-width='2' opacity='0.7'/%3E%3Ctext x='40' y='60' fill='%23ffffff' font-size='18' font-family='sans-serif' font-weight='bold'%3E%E5%88%86%E9%95%9C%E7%9A%84%E5%91%BC%E5%90%B8%3C/text%3E%3C/svg%3E" alt="幕后纪实《分镜的呼吸》封面：手绘分镜稿与色块构成">
+            <div class="ovf-fm-body">
+              <h3>《分镜的呼吸》：一集动画诞生前的 14 天</h3>
+              <div class="ovf-meta"><span>幕后纪实</span><span>12:40</span></div>
+            </div>
+          </article>
+          <article class="ovf-focus-mini">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23103040'/%3E%3Cg stroke='%2367e8f9' stroke-width='2' fill='none' opacity='0.8'%3E%3Cpath d='M0 210 Q120 130 240 190 T480 150'/%3E%3Cpath d='M0 240 Q140 180 260 230 T480 200'/%3E%3C/g%3E%3Ccircle cx='120' cy='90' r='30' fill='%239b8cff' opacity='0.85'/%3E%3Ctext x='40' y='60' fill='%23ffffff' font-size='18' font-family='sans-serif' font-weight='bold'%3E%E5%8E%9F%E7%94%BB%E4%B8%8A%E7%9A%84%E9%A3%8E%3C/text%3E%3C/svg%3E" alt="教程内容《原画上的风》封面：青蓝色线条流动与紫色圆点">
+            <div class="ovf-fm-body">
+              <h3>《原画上的风》：让静态画面动起来的三种思路</h3>
+              <div class="ovf-meta"><span>教程干货</span><span>09:12</span></div>
+            </div>
+          </article>
+          <article class="ovf-focus-mini">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23301f2c'/%3E%3Cg fill='none' stroke='%23ff5a7a' stroke-width='3'%3E%3Ccircle cx='240' cy='135' r='66'/%3E%3Ccircle cx='240' cy='135' r='40' opacity='0.6'/%3E%3C/g%3E%3Ctext x='40' y='60' fill='%23ffffff' font-size='18' font-family='sans-serif' font-weight='bold'%3E%E5%A3%B0%E9%9F%B3%E7%9A%84%E8%BE%B9%E7%95%8C%3C/text%3E%3Ctext x='40' y='240' fill='%23ffc857' font-size='12' font-family='sans-serif' letter-spacing='2'%3EVOICE INTERVIEW%3C/text%3E%3C/svg%3E" alt="人物访谈《声音的边界》封面：粉色同心圆与录音意象">
+            <div class="ovf-fm-body">
+              <h3>《声音的边界》：和三位配音演员聊角色如何开口</h3>
+              <div class="ovf-meta"><span>人物访谈</span><span>26:05</span></div>
+            </div>
+          </article>
+          <article class="ovf-focus-mini">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%231b2a1f'/%3E%3Cg fill='%2367e8f9' opacity='0.7'%3E%3Crect x='70' y='170' width='70' height='50' rx='6'/%3E%3Crect x='160' y='140' width='70' height='80' rx='6'/%3E%3Crect x='250' y='110' width='70' height='110' rx='6'/%3E%3C/g%3E%3Cpath d='M380 200 L420 120 L460 200 Z' fill='%23ffc857' opacity='0.85'/%3E%3Ctext x='40' y='60' fill='%23ffffff' font-size='18' font-family='sans-serif' font-weight='bold'%3E%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%8A%A8%E7%94%BB%E5%B7%A5%E4%BD%9C%E5%AE%A4%3C/text%3E%3C/svg%3E" alt="经验分享《一个人的动画工作室》封面：桌面与设备色块构成">
+            <div class="ovf-fm-body">
+              <h3>《一个人的动画工作室》：独立创作的预算与取舍</h3>
+              <div class="ovf-meta"><span>经验分享</span><span>17:33</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 热门视频流 -->
+  <section class="ovf-sec" id="ovf-videos">
+    <div class="ovf-wrap">
+      <div class="ovf-sec-head">
+        <div>
+          <span class="ovf-kicker">Trending · 热门</span>
+          <h2 class="ovf-h2">正在被 <span>反复观看</span> 的作品</h2>
+        </div>
+        <p class="ovf-sec-desc">按近期热度与收藏增长综合排序，每一条都附有创作者与简要说明，方便你先看简介再决定。</p>
+      </div>
+      <div class="ovf-video-grid" id="ovf-video-grid">
+
+        <article class="ovf-vcard" data-ovf-title="雨停之前">
+          <div class="ovf-vcard-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Cdefs%3E%3ClinearGradient id='v1' x1='0' y1='0' x2='0' y2='1'%3E%3Cstop offset='0' stop-color='%23223355'/%3E%3Cstop offset='1' stop-color='%230d1626'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='480' height='270' fill='url(%23v1)'/%3E%3Cg stroke='%2367e8f9' stroke-opacity='0.5' stroke-width='1.6'%3E%3Cpath d='M40 30 L30 90'/%3E%3Cpath d='M120 20 L110 80'/%3E%3Cpath d='M220 40 L210 100'/%3E%3Cpath d='M330 25 L320 85'/%3E%3Cpath d='M420 45 L410 105'/%3E%3C/g%3E%3Cpath d='M60 220 Q160 170 260 210 T460 190' fill='none' stroke='%23ff5a7a' stroke-width='3' opacity='0.8'/%3E%3Ccircle cx='390' cy='90' r='26' fill='%23ffc857' opacity='0.85'/%3E%3Ctext x='36' y='250' fill='%23ffffff' font-size='16' font-family='sans-serif' font-weight='bold'%3E%E9%9B%A8%E5%81%9C%E4%B9%8B%E5%89%8D%3C/text%3E%3C/svg%3E" alt="短片《雨停之前》封面：雨丝与红色轨迹交织的夜色">
+            <span class="ovf-vcover-tag">原创短片</span>
+            <span class="ovf-vcover-dur">08:24</span>
+          </div>
+          <div class="ovf-vcard-body">
+            <h3>《雨停之前》：便利店的第七个夜晚</h3>
+            <p>一部关于等待与告别的短片。全片只用一个场景、两个角色，把情绪压在雨声与冰柜嗡鸣之间。</p>
+            <div class="ovf-vcard-foot">
+              <span class="ovf-avatar" style="background:%23ff5a7a">迟</span>
+              <span>迟野</span><span>· 2.3 万播放</span>
+            </div>
+            <div class="ovf-card-actions">
+              <button class="ovf-act" type="button" data-ovf-like>♡ <span class="ovf-like-num">842</span></button>
+              <button class="ovf-act" type="button" data-ovf-save>☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ovf-vcard" data-ovf-title="机械心跳">
+          <div class="ovf-vcard-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23161f38'/%3E%3Cg stroke='%239b8cff' fill='none' stroke-width='2'%3E%3Crect x='170' y='70' width='140' height='140' rx='14'/%3E%3Ccircle cx='240' cy='140' r='44'/%3E%3Cpath d='M240 96 V184' opacity='0.6'/%3E%3C/g%3E%3Cg fill='%23ffc857'%3E%3Ccircle cx='90' cy='80' r='7'/%3E%3Ccircle cx='390' cy='200' r='7'/%3E%3Ccircle cx='400' cy='70' r='5'/%3E%3C/g%3E%3Ctext x='36' y='250' fill='%23ffffff' font-size='16' font-family='sans-serif' font-weight='bold'%3E%E6%9C%BA%E6%A2%B0%E5%BF%83%E8%B7%B3%3C/text%3E%3C/svg%3E" alt="系列《机械心跳》封面：紫色机械结构与黄色节点">
+            <span class="ovf-vcover-tag">系列企划</span>
+            <span class="ovf-vcover-dur">14:02</span>
+          </div>
+          <div class="ovf-vcard-body">
+            <h3>《机械心跳》第 2 话：给机器人一段不完整的记忆</h3>
+            <p>世界观继续展开。本话把视角交给维修师，讲述一段被删除却总在夜里重启的记忆。</p>
+            <div class="ovf-vcard-foot">
+              <span class="ovf-avatar" style="background:%239b8cff">M</span>
+              <span>墨线工坊</span><span>· 1.8 万播放</span>
+            </div>
+            <div class="ovf-card-actions">
+              <button class="ovf-act" type="button" data-ovf-like>♡ <span class="ovf-like-num">633</span></button>
+              <button class="ovf-act" type="button" data-ovf-save>☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ovf-vcard" data-ovf-title="夏日电波">
+          <div class="ovf-vcard-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23243a2a'/%3E%3Cg stroke='%2367e8f9' stroke-width='2.4' fill='none'%3E%3Cpath d='M40 190 Q120 120 200 190 T360 190 T460 170'/%3E%3C/g%3E%3Ccircle cx='350' cy='80' r='34' fill='%23ffc857' opacity='0.92'/%3E%3Cg fill='%23ff5a7a' opacity='0.85'%3E%3Crect x='70' y='210' width='14' height='30' rx='3'/%3E%3Crect x='92' y='196' width='14' height='44' rx='3'/%3E%3Crect x='114' y='204' width='14' height='36' rx='3'/%3E%3C/g%3E%3Ctext x='36' y='250' fill='%23ffffff' font-size='16' font-family='sans-serif' font-weight='bold'%3E%E5%A4%8F%E6%97%A5%E7%94%B5%E6%B3%A2%3C/text%3E%3C/svg%3E" alt="《夏日电波》封面：绿色背景上的电波曲线与黄色太阳">
+            <span class="ovf-vcover-tag">日常记录</span>
+            <span class="ovf-vcover-dur">06:47</span>
+          </div>
+          <div class="ovf-vcard-body">
+            <h3>《夏日电波》：把暑假最后一天画成循环动画</h3>
+            <p>没有台词，只有风扇声、蝉鸣与一段反复推演的分镜。创作者用 300 帧记录一天的光。</p>
+            <div class="ovf-vcard-foot">
+              <span class="ovf-avatar" style="background:%2367e8f9">许</span>
+              <span>许南枝</span><span>· 3.1 万播放</span>
+            </div>
+            <div class="ovf-card-actions">
+              <button class="ovf-act" type="button" data-ovf-like>♡ <span class="ovf-like-num">1,107</span></button>
+              <button class="ovf-act" type="button" data-ovf-save>☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ovf-vcard" data-ovf-title="炭笔与胶片">
+          <div class="ovf-vcard-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%233b2c22'/%3E%3Cg stroke='%23e8c9a0' stroke-width='3' fill='none' opacity='0.8'%3E%3Cpath d='M80 200 Q160 80 250 150 T420 110'/%3E%3Cpath d='M80 220 Q170 110 260 180 T430 140' opacity='0.5'/%3E%3C/g%3E%3Cg fill='%23ffc857' opacity='0.9'%3E%3Ccircle cx='120' cy='70' r='9'/%3E%3Ccircle cx='390' cy='210' r='9'/%3E%3C/g%3E%3Ctext x='36' y='250' fill='%23ffffff' font-size='16' font-family='sans-serif' font-weight='bold'%3E%E7%82%AD%E7%AC%94%E4%B8%8E%E8%83%B6%E7%89%87%3C/text%3E%3C/svg%3E" alt="《炭笔与胶片》封面：复古棕调上的手绘曲线">
+            <span class="ovf-vcover-tag">创作幕后</span>
+            <span class="ovf-vcover-dur">11:15</span>
+          </div>
+          <div class="ovf-vcard-body">
+            <h3>《炭笔与胶片》：一次手绘与数字合成的混搭实验</h3>
+            <p>把纸质炭笔稿扫描进电脑，再与三维背景合成。这条幕后记录了全部失败镜头与最终解法。</p>
+            <div class="ovf-vcard-foot">
+              <span class="ovf-avatar" style="background:%23ffc857">林</span>
+              <span>林间放映室</span><span>· 9,840 播放</span>
+            </div>
+            <div class="ovf-card-actions">
+              <button class="ovf-act" type="button" data-ovf-like>♡ <span class="ovf-like-num">418</span></button>
+              <button class="ovf-act" type="button" data-ovf-save>☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ovf-vcard" data-ovf-title="给新人的第一课">
+          <div class="ovf-vcard-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%231a2438'/%3E%3Cg fill='%2367e8f9' opacity='0.85'%3E%3Crect x='70' y='80' width='90' height='110' rx='8'/%3E%3C/g%3E%3Cg fill='%239b8cff' opacity='0.85'%3E%3Crect x='190' y='60' width='90' height='130' rx='8'/%3E%3C/g%3E%3Cg fill='%23ff5a7a' opacity='0.85'%3E%3Crect x='310' y='100' width='90' height='90' rx='8'/%3E%3C/g%3E%3Ctext x='36' y='250' fill='%23ffffff' font-size='16' font-family='sans-serif' font-weight='bold'%3E%E7%BB%99%E6%96%B0%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE%3C/text%3E%3C/svg%3E" alt="教程《给新人的第一课》封面：三色色块表示学习阶段">
+            <span class="ovf-vcover-tag">教程干货</span>
+            <span class="ovf-vcover-dur">19:30</span>
+          </div>
+          <div class="ovf-vcard-body">
+            <h3>《给新人的第一课》：动画入门要放弃的三件事</h3>
+            <p>不灌鸡汤。从软件选择、练习频率到作品发布，讲清楚新手最容易踩的三个坑与替代方案。</p>
+            <div class="ovf-vcard-foot">
+              <span class="ovf-avatar" style="background:%23ff5a7a">周</span>
+              <span>周小满</span><span>· 4.6 万播放</span>
+            </div>
+            <div class="ovf-card-actions">
+              <button class="ovf-act" type="button" data-ovf-like>♡ <span class="ovf-like-num">2,014</span></button>
+              <button class="ovf-act" type="button" data-ovf-save>☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="ovf-vcard" data-ovf-title="城市微光">
+          <div class="ovf-vcard-cover">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 270'%3E%3Crect width='480' height='270' fill='%23121a2b'/%3E%3Cg fill='%23ffc857' opacity='0.8'%3E%3Crect x='60' y='120' width='40' height='90'/%3E%3Crect x='120' y='90' width='40' height='120'/%3E%3Crect x='180' y='140' width='40' height='70'/%3E%3Crect x='240' y='60' width='40' height='150'/%3E%3Crect x='300' y='110' width='40' height='100'/%3E%3Crect x='360' y='80' width='40' height='130'/%3E%3C/g%3E%3Cg fill='%2367e8f9' opacity='0.75'%3E%3Ccircle cx='80' cy='50' r='4'/%3E%3Ccircle cx='250' cy='40' r='4'/%3E%3Ccircle cx='400' cy='53' r='4'/%3E%3C/g%3E%3Ctext x='36' y='250' fill='%23ffffff' font-size='16' font-family='sans-serif' font-weight='bold'%3E%E5%9F%8E%E5%B8%82%E5%BE%AE%E5%85%89%3C/text%3E%3C/svg%3E" alt="城市探索《城市微光》封面：夜间楼宇灯火剪影">
+            <span class="ovf-vcover-tag">城市探索</span>
+            <span class="ovf-vcover-dur">13:08</span>
+          </div>
+          <div class="ovf-vcard-body">
+            <h3>《城市微光》：跟着分镜去看凌晨四点的街道</h3>
+            <p>创作者把城市实拍转成动画背景，一边勘景一边画，最后生成一段介于记录与虚构之间的影像。</p>
+            <div class="ovf-vcard-foot">
+              <span class="ovf-avatar" style="background:%2367e8f9">陈</span>
+              <span>陈默行</span><span>· 2.7 万播放</span>
+            </div>
+            <div class="ovf-card-actions">
+              <button class="ovf-act" type="button" data-ovf-like>♡ <span class="ovf-like-num">956</span></button>
+              <button class="ovf-act" type="button" data-ovf-save>☆ 收藏</button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+      <p class="ovf-search-tip" id="ovf-search-tip"></p>
+    </div>
+  </section>
+
+  <!-- 专题企划 -->
+  <section class="ovf-sec" id="ovf-topics">
+    <div class="ovf-wrap">
+      <div class="ovf-sec-head">
+        <div>
+          <span class="ovf-kicker">Series · 企划</span>
+          <h2 class="ovf-h2">OVERFLOW 动漫 <span>专题企划</span></h2>
+        </div>
+        <p class="ovf-sec-desc">以季度为单位的主题策划，每期围绕一个母题邀请多位创作者共同完成，并同步更新制作笔记。</p>
+      </div>
+      <div class="ovf-topic-grid">
+        <article class="ovf-topic">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Cdefs%3E%3ClinearGradient id='t1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231f1533'/%3E%3Cstop offset='1' stop-color='%23422a55'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='800' height='500' fill='url(%23t1)'/%3E%3Cg stroke='%23ffc857' stroke-width='2' fill='none' opacity='0.8'%3E%3Cpath d='M100 400 Q250 200 400 300 T700 200'/%3E%3Cpath d='M100 440 Q260 250 420 340 T720 250' opacity='0.5'/%3E%3C/g%3E%3Ccircle cx='650' cy='120' r='52' fill='%23ff5a7a' opacity='0.8'/%3E%3Ctext x='60' y='80' fill='%23ffffff' font-size='30' font-family='sans-serif' font-weight='bold'%3E%E5%86%AC%E5%AD%A3%E5%8E%9F%E5%88%9B%E6%96%B0%E4%BD%9C%E5%AD%B5%E5%8C%96%3C/text%3E%3Ctext x='60' y='115' fill='%2367e8f9' font-size='14' font-family='sans-serif' letter-spacing='4'%3EWINTER INCUBATION%3C/text%3E%3C/svg%3E" alt="专题《冬季原创新作孵化》封面：紫色夜空与金色曲线">
+          <div class="ovf-topic-body">
+            <span class="ovf-topic-status">征集中</span>
+            <h3>冬季原创新作孵化</h3>
+            <p>面向所有社区创作者的提案计划，入选项目将获得制片辅导与官方发布资源推荐。</p>
+          </div>
+        </article>
+        <article class="ovf-topic">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%23182b3a'/%3E%3Cg stroke='%2367e8f9' stroke-width='2.4' fill='none'%3E%3Ccircle cx='200' cy='220' r='90'/%3E%3Ccircle cx='200' cy='220' r='60' opacity='0.6'/%3E%3Cpath d='M200 130 V310' opacity='0.45'/%3E%3C/g%3E%3Crect x='110' y='380' width='180' height='10' rx='5' fill='%23ffc857'/%3E%3Ctext x='40' y='70' fill='%23ffffff' font-size='20' font-family='sans-serif' font-weight='bold'%3E%E5%A3%B0%E9%9F%B3%E7%9A%84%E8%BE%B9%E7%95%8C%3C/text%3E%3C/svg%3E" alt="专题《声音的边界》封面：青蓝色同心圆与音轨元素">
+          <div class="ovf-topic-body">
+            <span class="ovf-topic-status">连载中</span>
+            <h3>声音的边界</h3>
+            <p>聚焦配音与音效设计的系列访谈，已更新 4 期。</p>
+          </div>
+        </article>
+        <article class="ovf-topic">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%232b2118'/%3E%3Cg fill='%23ffc857' opacity='0.85'%3E%3Crect x='60' y='300' width='60' height='130' rx='6'/%3E%3Crect x='150' y='250' width='60' height='180' rx='6'/%3E%3Crect x='240' y='200' width='60' height='230' rx='6'/%3E%3C/g%3E%3Ctext x='40' y='70' fill='%23ffffff' font-size='20' font-family='sans-serif' font-weight='bold'%3E%E4%B8%80%E4%B8%AA%E4%BA%BA%E7%9A%84%E5%B7%A5%E4%BD%9C%E5%AE%A4%3C/text%3E%3C/svg%3E" alt="专题《一个人的工作室》封面：暖棕背景上的三根色块柱">
+          <div class="ovf-topic-body">
+            <span class="ovf-topic-status">已完结</span>
+            <h3>一个人的工作室</h3>
+            <p>独立创作者生存样本集，6 位作者、6 种工作方式。</p>
+          </div>
+        </article>
+        <article class="ovf-topic">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Crect width='400' height='500' fill='%231d2a4a'/%3E%3Cg stroke='%239b8cff' stroke-width='3' fill='none'%3E%3Cpath d='M50 400 L140 260 L230 340 L340 180'/%3E%3C/g%3E%3Ccircle cx='140' cy='260' r='8' fill='%23ff5a7a'/%3E%3Ccircle cx='230' cy='340' r='8' fill='%23ffc857'/%3E%3Ccircle cx='340' cy='180' r='8' fill='%2367e8f9'/%3E%3Ctext x='40' y='70' fill='%23ffffff' font-size='20' font-family='sans-serif' font-weight='bold'%3E%E5%88%9B%E4%BD%9C%E6%8C%91%E6%88%98%E8%B5%9B%3C/text%3E%3C/svg%3E" alt="专题《创作挑战赛》封面：蓝紫底色上的折线与三个节点">
+          <div class="ovf-topic-body">
+            <span class="ovf-topic-status">报名中</span>
+            <h3>创作挑战赛 · 第 5 季</h3>
+            <p>以「三分钟讲完一个反转」为题的限时创作挑战，开放报名与投票。</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 创作者 -->
+  <section class="ovf-sec" id="ovf-creators">
+    <div class="ovf-wrap">
+      <div class="ovf-sec-head">
+        <div>
+          <span class="ovf-kicker">Creators · 创作者</span>
+          <h2 class="ovf-h2">这些人在 <span>持续创作</span></h2>
+        </div>
+        <p class="ovf-sec-desc">他们来自不同背景，有人全职，有人业余，但都在 OVERFLOW 动漫留下了稳定的作品序列。</p>
+      </div>
+      <div class="ovf-creator-grid">
+        <article class="ovf-creator">
+          <div class="ovf-creator-av" style="background:linear-gradient(135deg,#ff5a7a,#ffc857)">迟</div>
+          <h3>迟野</h3>
+          <div class="ovf-cr-field">日常叙事 · 短片</div>
+          <p>擅长用极少台词讲情绪。作品节奏慢，但每个镜头都经过反复推演，常说「让画面自己说话」。</p>
+          <div class="ovf-creator-data"><span><b>34</b>作品</span><span><b>6.2 万</b>粉丝</span></div>
+          <button class="ovf-btn ovf-btn-ghost" type="button" data-ovf-open="creator" data-ovf-name="迟野">查看档案</button>
+        </article>
+        <article class="ovf-creator">
+          <div class="ovf-creator-av" style="background:linear-gradient(135deg,#9b8cff,#67e8f9)">墨</div>
+          <h3>墨线工坊</h3>
+          <div class="ovf-cr-field">世界观 · 系列企划</div>
+          <p>三人小组，分工明确。专注长线叙事与设定体系，喜欢在细节里埋伏笔，是社区里知名的设定考据派。</p>
+          <div class="ovf-creator-data"><span><b>21</b>作品</span><span><b>9.4 万</b>粉丝</span></div>
+          <button class="ovf-btn ovf-btn-ghost" type="button" data-ovf-open="creator" data-ovf-name="墨线工坊">查看档案</button>
+        </article>
+        <article class="ovf-creator">
+          <div class="ovf-creator-av" style="background:linear-gradient(135deg,#67e8f9,#9b8cff)">许</div>
+          <h3>许南枝</h3>
+          <div class="ovf-cr-field">循环动画 · 治愈影像</div>
+          <p>喜欢把日常片段做成可以无限循环的小动画。她的作品常被观众当作工作时的背景，安静又有存在感。</p>
+          <div class="ovf-creator-data"><span><b>47</b>作品</span><span><b>12.1 万</b>粉丝</span></div>
+          <button class="ovf-btn ovf-btn-ghost" type="button" data-ovf-open="creator" data-ovf-name="许南枝">查看档案</button>
+        </article>
+        <article class="ovf-creator">
+          <div class="ovf-creator-av" style="background:linear-gradient(135deg,#ffc857,#ff5a7a)">周</div>
+          <h3>周小满</h3>
+          <div class="ovf-cr-field">教程 · 新人引导</div>
+          <p>从行业一线退下来做内容的资深动画人，讲解清晰、不绕弯，是许多新人入门时的第一位「线上老师」。</p>
+          <div class="ovf-creator-data"><span><b>58</b>作品</span><span><b>15.7 万</b>粉丝</span></div>
+          <button class="ovf-btn ovf-btn-ghost" type="button" data-ovf-open="creator" data-ovf-name="周小满">查看档案</button>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 故事随笔 -->
+  <section class="ovf-sec" id="ovf-stories">
+    <div class="ovf-wrap">
+      <div class="ovf-sec-head">
+        <div>
+          <span class="ovf-kicker">Notes · 随笔</span>
+          <h2 class="ovf-h2">影像之外的 <span>一些记录</span></h2>
+        </div>
+        <p class="ovf-sec-desc">来自创作者与编辑的短记，与视频内容互为注脚。</p>
+      </div>
+      <div class="ovf-story-grid">
+        <article class="ovf-story">
+          <h3>《在凌晨四点画一条街》</h3>
+          <p>勘景那天，我坐在便利店门口画了三个小时。行人很少，只有送货车和清扫工。后来这段经历变成了《城市微光》里最长的一个横移镜头。我想，真正的城市不在白天的宣传片里，而在这些几乎没人拍的时刻。</p>
+          <span class="ovf-story-sign">—— 陈默行 · 创作笔记</span>
+        </article>
+        <article class="ovf-story">
+          <h3>《给新人一句实话》</h3>
+          <p>每次有人问我怎么入行，我都想说：先做完一部完整的作品，哪怕只有四十秒。完整的作品会逼你面对节奏、音效、字幕、交付的所有细节，这些是教程里学不到的东西。别急着被看见，先让自己有东西可被看见。</p>
+          <span class="ovf-story-sign">—— 周小满 · 专栏随笔</span>
+        </article>
+        <article class="ovf-story">
+          <h3>《关于「溢出」的一点理解》</h3>
+          <p>品牌名叫 OVERFLOW，有人以为是说画面宏大。其实我们想说的是情绪的溢出：当一段影像的内容量超过它的时长所能承载的，观众会自己补完剩下的部分。那种一起完成的瞬间，才是动画最迷人的地方。</p>
+          <span class="ovf-story-sign">—— OVERFLOW 动漫编辑部</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户评价 + 榜单 -->
+  <section class="ovf-sec" id="ovf-rank">
+    <div class="ovf-wrap">
+      <div class="ovf-sec-head">
+        <div>
+          <span class="ovf-kicker">Voices · 口碑</span>
+          <h2 class="ovf-h2">社区评价与 <span>本周榜单</span></h2>
+        </div>
+        <p class="ovf-sec-desc">真实的用户反馈与数据排行，帮助新来的朋友快速判断哪些内容值得先看。</p>
+      </div>
+
+      <div class="ovf-review-grid" style="margin-bottom:26px">
+        <article class="ovf-review">
+          <p>从《雨停之前》开始关注的，一直很喜欢这个站的节奏。没有夸张的封面党，简介写得也清楚，看之前大概就知道会是什么体验。</p>
+          <div class="ovf-review-foot"><span class="ovf-avatar" style="background:#ff5a7a">李</span><span>李一岸</span><span class="ovf-review-stars">★★★★★</span></div>
+        </article>
+        <article class="ovf-review">
+          <p>作为半路出家的动画爱好者，最有用的是那些教程类内容。讲得很实在，不回避成本和工期问题，比很多只讲效果的视频靠谱。</p>
+          <div class="ovf-review-foot"><span class="ovf-avatar" style="background:#67e8f9">阿</span><span>阿岚</span><span class="ovf-review-stars">★★★★☆</span></div>
+        </article>
+        <article class="ovf-review">
+          <p>社区氛围不错，评论区能认真讨论剧情和分镜。有时候创作者会亲自回复，这一点挺打动人的，感觉作品是被认真对待的。</p>
+          <div class="ovf-review-foot"><span class="ovf-avatar" style="background:#9b8cff">沉</span><span>沉舟</span><span class="ovf-review-stars">★★★★★</span></div>
+        </article>
+        <article class="ovf-review">
+          <p>专题企划的完成度很高，尤其是《声音的边界》那几期访谈，把配音这件事讲透了。希望以后能多做一些幕后类内容。</p>
+          <div class="ovf-review-foot"><span class="ovf-avatar" style="background:#ffc857">木</span><span>木子青</span><span class="ovf-review-stars">★★★★☆</span></div>
+        </article>
+        <article class="ovf-review">
+          <p>界面看着舒服，深色底配彩色封面，长时间刷也不累。收藏功能好用，已经攒了一个自己的片单，周末慢慢看。</p>
+          <div class="ovf-review-foot"><span class="ovf-avatar" style="background:#ff5a7a">晚</span><span>晚风电台</span><span class="ovf-review-stars">★★★★★</span></div>
+        </article>
+        <article class="ovf-review">
+          <p>报名参加了创作挑战赛，流程说明写得很清楚，评审维度也公开。作为普通创作者，觉得被尊重，而不只是凑热闹。</p>
+          <div class="ovf-review-foot"><span class="ovf-avatar" style="background:#67e8f9">小</span><span>小满月</span><span class="ovf-review-stars">★★★★☆</span></div>
+        </article>
+      </div>
+
+      <div class="ovf-rank-grid">
+        <div class="ovf-rank">
+          <h3>本周热度榜</h3>
+          <ol>
+            <li><span class="ovf-rank-num">1</span>《给新人的第一课》· 周小满</li>
+            <li><span class="ovf-rank-num">2</span>《夏日电波》· 许南枝</li>
+            <li><span class="ovf-rank-num">3</span>《城市微光》· 陈默行</li>
+            <li><span class="ovf-rank-num">4</span>《机械心跳》第 2 话 · 墨线工坊</li>
+            <li><span class="ovf-rank-num">5</span>《雨停之前》· 迟野</li>
+          </ol>
+        </div>
+        <div class="ovf-rank">
+          <h3>新人榜</h3>
+          <ol>
+            <li><span class="ovf-rank-num">1</span>南方电波 · 入驻 21 天</li>
+            <li><span class="ovf-rank-num">2</span>纸飞机计划 · 入驻 34 天</li>
+            <li><span class="ovf-rank-num">3</span>陆七 · 入驻 46 天</li>
+            <li><span class="ovf-rank-num">4</span>夜航船工作室 · 入驻 52 天</li>
+            <li><span class="ovf-rank-num">5</span>蓝铅笔 · 入驻 63 天</li>
+          </ol>
+        </div>
+        <div class="ovf-rank">
+          <h3>口碑榜</h3>
+          <ol>
+            <li><span class="ovf-rank-num">1</span>《声音的边界》系列访谈</li>
+            <li><span class="ovf-rank-num">2</span>《分镜的呼吸》幕后纪实</li>
+            <li><span class="ovf-rank-num">3</span>《一个人的动画工作室》</li>
+            <li><span class="ovf-rank-num">4</span>《原画上的风》教程</li>
+            <li><span class="ovf-rank-num">5</span>《雨停之前》原创短片</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 合作伙伴 -->
+  <section class="ovf-sec" id="ovf-partners">
+    <div class="ovf-wrap">
+      <div class="ovf-sec-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+        <span class="ovf-kicker">Partners · 合作</span>
+        <h2 class="ovf-h2">与我们一起 <span>把内容做好</span></h2>
+        <p class="ovf-sec-desc" style="margin-top:8px">品牌合作、联合企划与内容授权，均通过官方渠道统一对接。</p>
+      </div>
+      <div class="ovf-partners">
+        <span class="ovf-partner">星轨动画节</span>
+        <span class="ovf-partner">青空出版社</span>
+        <span class="ovf-partner">回声录音棚</span>
+        <span class="ovf-partner">像素与墨</span>
+        <span class="ovf-partner">南窗文创</span>
+        <span class="ovf-partner">晨光学院动画系</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="ovf-sec" id="ovf-faq">
+    <div class="ovf-wrap">
+      <div class="ovf-sec-head" style="justify-content:center;text-align:center;flex-direction:column;align-items:center">
+        <span class="ovf-kicker">FAQ · 帮助</span>
+        <h2 class="ovf-h2">常见 <span>问题解答</span></h2>
+      </div>
+      <div class="ovf-faq">
+        <details open>
+          <summary>OVERFLOW 动漫是一个什么性质的平台？</summary>
+          <p>OVERFLOW 动漫是一个以原创动画为核心的品牌内容社区，既是作品发布平台，也是创作者的档案库。官方网站会同步更新作品、制作说明与企划进度，方便观众完整了解每一部内容的来龙去脉。</p>
+        </details>
+        <details>
+          <summary>如何向你们投稿自己的动画作品？</summary>
+          <p>页面底部的「联系与投稿」区域提供投稿入口，点击后会弹出投稿说明。请在说明中附上作品介绍、时长、完成度与团队名单，编辑部会在五个工作日内回复。建议先观看站内已有的教程与幕后内容，了解我们偏好的叙事方式。</p>
+        </details>
+        <details>
+          <summary>作品进入专题企划需要满足什么条件？</summary>
+          <p>专题企划通常按季度主题征集，需符合当期母题，并具备完整的视听方案。我们会综合评估原创性、完成度与制作笔记的完整程度。入选作品将获得官方发布资源推荐与制片辅导机会。</p>
+        </details>
+        <details>
+          <summary>站内内容是否都标注了创作者信息？</summary>
+          <p>是的。所有发布内容都会标注创作者或团队名称，并在作品说明中列出主要分工。若有联合创作，会逐一注明。我们同样重视正版与署名，转载或二次使用请先通过联系渠道沟通。</p>
+        </details>
+        <details>
+          <summary>社区里的点赞与收藏数据会公开吗？</summary>
+          <p>会公开总量，但不会公开具体的个人行为记录。我们希望这些数据帮助大家判断内容热度，而不是给创作者造成压力。榜单按周期更新，算法规则在对应板块有简要说明。</p>
+        </details>
+        <details>
+          <summary>品牌合作与内容授权怎么对接？</summary>
+          <p>请通过下方合作邮箱发起沟通，说明合作类型、使用场景与时间安排。我们会在收到信息后安排对接，并视情况提供作品清单与授权方案说明。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 联系/投稿 -->
+  <section class="ovf-sec" id="ovf-contact">
+    <div class="ovf-wrap">
+      <div class="ovf-contact">
+        <div class="ovf-contact-info">
+          <span class="ovf-kicker">Contact · 联系</span>
+          <h2 class="ovf-h2" style="font-size:clamp(22px,3vw,30px)">和 OVERFLOW 动漫 <span>说说话</span></h2>
+          <p style="color:var(--ovf-muted);font-size:14px;margin-top:12px">无论你是想投稿、想合作，还是只想告诉我们哪里还可以做得更好，都欢迎写信过来。我们相信真实的反馈是品牌持续成长的养分。</p>
+          <ul>
+            <li><strong>合作邮箱</strong>partner@overflow-anime.example</li>
+            <li><strong>投稿咨询</strong>creator@overflow-anime.example</li>
+            <li><strong>社区反馈</strong>feedback@overflow-anime.example</li>
+            <li><strong>办公地址</strong>城市创意园 A 座 5 层 · OVERFLOW 动漫工作室</li>
+          </ul>
+        </div>
+        <div class="ovf-submit-card">
+          <h3>创作投稿入口</h3>
+          <p>准备好作品介绍与团队名单，点击下方按钮提交。我们更关心你为什么想拍这部作品，而不只是参数。</p>
+          <div class="ovf-submit-actions">
+            <button class="ovf-btn ovf-btn-primary" type="button" data-ovf-open="submit">我要投稿</button>
+            <button class="ovf-btn ovf-btn-ghost" type="button" data-ovf-share="OVERFLOW 动漫官方网站">分享本站</button>
+            <button class="ovf-btn ovf-btn-ghost" type="button" data-ovf-open="feedback">意见反馈</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ovf-footer">
+  <div class="ovf-wrap">
+    <div class="ovf-footer-grid">
+      <div>
+        <div class="ovf-logo" style="margin-bottom:14px">
+          <span class="ovf-logo-mark">OV</span>
+          <span>
+            <span class="ovf-logo-txt">OVERFLOW<em>动漫</em></span>
+            <span class="ovf-logo-sub">OFFICIAL PORTAL</span>
+          </span>
+        </div>
+        <p>OVERFLOW 动漫官方网站。以原创动画为核心，持续运营的品牌内容社区，致力于为创作者与观众搭建真实、温暖而有力量的影像空间。</p>
+        <p style="margin-top:12px;color:var(--ovf-cyan);font-weight:700">官方网站 · 版权所有 · 持续运营中</p>
+      </div>
+      <div>
+        <h4>内容导航</h4>
+        <ul>
+          <li><a href="#ovf-focus">焦点内容</a></li>
+          <li><a href="#ovf-videos">热门视频</a></li>
+          <li><a href="#ovf-topics">专题企划</a></li>
+          <li><a href="#ovf-stories">创作随笔</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>创作者</h4>
+        <ul>
+          <li><a href="#ovf-creators">创作者矩阵</a></li>
+          <li><a href="#ovf-rank">本周榜单</a></li>
+          <li><a href="#ovf-contact">投稿入口</a></li>
+          <li><a href="#ovf-faq">投稿指引</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于品牌</h4>
+        <ul>
+          <li><a href="#ovf-about">品牌深度解析</a></li>
+          <li><a href="#ovf-partners">合作品牌</a></li>
+          <li><a href="#ovf-faq">常见问题</a></li>
+          <li><a href="#ovf-contact">联系我们</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ovf-footer-bottom">
+      <span>© 2026 OVERFLOW 动漫 官方网站 · 保留所有权利</span>
+      <span>企业主体：OVERFLOW 动漫文化传播（示例） · 备案信息以官方发布为准</span>
+    </div>
+  </div>
+</footer>
+
+<button class="ovf-totop" id="ovf-totop" aria-label="回到顶部">↑</button>
+
+<div class="ovf-modal" id="ovf-modal" role="dialog" aria-modal="true" aria-labelledby="ovf-modal-title">
+  <div class="ovf-modal-box">
+    <button class="ovf-modal-close" type="button" id="ovf-modal-close" aria-label="关闭">✕</button>
+    <h3 id="ovf-modal-title">提示</h3>
+    <div id="ovf-modal-body"><p>内容加载中。</p></div>
+    <div class="ovf-modal-actions" id="ovf-modal-actions"></div>
+  </div>
+</div>
+
+<div class="ovf-toast" id="ovf-toast" role="status" aria-live="polite"></div>
+
+<script>
+(function(){
+  var doc = document;
+  var toastEl = doc.getElementById('ovf-toast');
+  var toastTimer = null;
+  function toast(msg){
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ toastEl.classList.remove('is-show'); }, 2200);
+  }
+
+  /* 移动端导航 */
+  var burger = doc.getElementById('ovf-burger');
+  var nav = doc.getElementById('ovf-nav');
+  if(burger && nav){
+    burger.addEventListener('click', function(){
+      var open = nav.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        nav.classList.remove('is-open');
+        burger.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  /* 滚动高亮与回顶 */
+  var totop = doc.getElementById('ovf-totop');
+  var navLinks = Array.prototype.slice.call(nav ? nav.querySelectorAll('a') : []);
+  var sections = navLinks.map(function(a){ return doc.querySelector(a.getAttribute('href')); }).filter(Boolean);
+  function onScroll(){
+    if(window.scrollY > 460){ totop.classList.add('is-show'); }
+    else{ totop.classList.remove('is-show'); }
+    var pos = window.scrollY + 160;
+    var current = sections[0];
+    sections.forEach(function(sec){ if(sec.offsetTop <= pos){ current = sec; } });
+    navLinks.forEach(function(a){
+      a.classList.toggle('is-active', a.getAttribute('href') === '#' + (current ? current.id : ''));
+    });
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  totop.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  /* 搜索反馈 */
+  var searchInput = doc.getElementById('ovf-search-input');
+  var searchBtn = doc.getElementById('ovf-search-btn');
+  var searchTip = doc.getElementById('ovf-search-tip');
+  var cards = Array.prototype.slice.call(doc.querySelectorAll('.ovf-vcard'));
+  function doSearch(){
+    var q = (searchInput.value || '').trim();
+    if(!q){
+      cards.forEach(function(c){ c.style.display = ''; });
+      searchTip.textContent = '请输入作品名、创作者或标签关键词。';
+      return;
+    }
+    var hit = 0;
+    cards.forEach(function(c){
+      var txt = c.textContent + ' ' + (c.getAttribute('data-ovf-title') || '');
+      var matched = txt.indexOf(q) > -1;
+      c.style.display = matched ? '' : 'none';
+      if(matched){ hit++; }
+    });
+    if(hit > 0){
+      searchTip.textContent = '找到 ' + hit + ' 个与「' + q + '」相关的内容，已在下方视频区域展示。';
+      doc.getElementById('ovf-videos').scrollIntoView({behavior:'smooth'});
+    }else{
+      searchTip.textContent = '暂时没有与「' + q + '」完全匹配的内容，试试「短片」「教程」或创作者昵称。';
+      cards.forEach(function(c){ c.style.display = ''; });
+    }
+  }
+  if(searchBtn){ searchBtn.addEventListener('click', doSearch); }
+  if(searchInput){
+    searchInput.addEventListener('keydown', function(e){ if(e.key === 'Enter'){ e.preventDefault(); doSearch(); } });
+  }
+
+  /* 点赞 / 收藏 */
+  doc.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-ovf-like]');
+    if(likeBtn){
+      var numEl = likeBtn.querySelector('.ovf-like-num');
+      var liked = likeBtn.classList.toggle('is-liked');
+      if(numEl){
+        var n = parseInt(numEl.textContent.replace(/,/g,''), 10) || 0;
+        n = liked ? n + 1 : Math.max(0, n - 1);
+        numEl.textContent = n.toLocaleString('zh-CN');
+      }
+      toast(liked ? '已记录你的喜欢，感谢反馈' : '已取消喜欢');
+      return;
+    }
+    var saveBtn = e.target.closest('[data-ovf-save]');
+    if(saveBtn){
+      var saved = saveBtn.classList.toggle('is-saved');
+      saveBtn.textContent = saved ? '★ 已收藏' : '☆ 收藏';
+      toast(saved ? '已加入收藏，可在个人片单中查看' : '已移出收藏');
+    }
+  });
+
+  /* 弹窗基础 */
+  var modal = doc.getElementById('ovf-modal');
+  var modalTitle = doc.getElementById('ovf-modal-title');
+  var modalBody = doc.getElementById('ovf-modal-body');
+  var modalActions = doc.getElementById('ovf-modal-actions');
+  var modalClose = doc.getElementById('ovf-modal-close');
+  function openModal(title, html, actions){
+    modalTitle.textContent = title;
+    modalBody.innerHTML = html;
+    modalActions.innerHTML = '';
+    (actions || []).forEach(function(act){
+      var b = doc.createElement('button');
+      b.type = 'button';
+      b.className = act.primary ? 'ovf-btn ovf-btn-primary' : 'ovf-btn ovf-btn-ghost';
+      b.textContent = act.label;
+      b.addEventListener('click', act.onClick);
+      modalActions.appendChild(b);
+    });
+    modal.classList.add('is-open');
+  }
+  function closeModal(){ modal.classList.remove('is-open'); }
+  modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e){ if(e.target === modal){ closeModal(); } });
+  doc.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeModal(); } });
+
+  doc.addEventListener('click', function(e){
+    var trigger = e.target.closest('[data-ovf-open]');
+    if(!trigger){ return; }
+    var kind = trigger.getAttribute('data-ovf-open');
+    if(kind === 'comment'){
+      openModal('参与评论', '<p>写下你对这部作品的具体感受，例如某个镜头、某段配乐或某个角色的处理方式。认真的评论会被创作者看到。</p><textarea placeholder="例如：第 3 话里信号塔那段长镜头，声音的处理让我印象很深……"></textarea>', [
+        {label:'提交评论', primary:true, onClick:function(){ closeModal(); toast('评论已提交，感谢你的认真回应'); }},
+        {label:'取消', onClick:closeModal}
+      ]);
+    }else if(kind === 'creator'){
+      var name = trigger.getAttribute('data-ovf-name') || '创作者';
+      openModal(name + ' · 创作者档案', '<p>' + name + ' 是 OVERFLOW 动漫社区中长期活跃的创作者，作品以稳定的叙事节奏与细致的画面处理见长。可在创作随笔与幕后内容中了解更多创作方法。</p><p style="margin-top:10px;color:#ffc857">官方认证创作者 · 作品持续更新中</p>', [
+        {label:'关注 TA', primary:true, onClick:function(){ closeModal(); toast('已关注 ' + name + '，新作上线会提醒你'); }},
+        {label:'关闭', onClick:closeModal}
+      ]);
+    }else if(kind === 'submit'){
+      openModal('创作投稿', '<p>请简单介绍你的作品：时长、完成度、团队分工与创作动机。编辑部会在五个工作日内回复。</p><textarea placeholder="作品名称 / 时长 / 内容简介 / 团队名单……"></textarea>', [
+        {label:'提交投稿', primary:true, onClick:function(){ closeModal(); toast('投稿已收到，我们会尽快阅读并回复'); }},
+        {label:'取消', onClick:closeModal}
+      ]);
+    }else if(kind === 'feedback'){
+      openModal('意见反馈', '<p>无论是对页面体验、内容分类还是社区规则，我们都想听你说。请尽量描述具体场景，便于我们改进。</p><textarea placeholder="例如：希望增加按制作公司筛选的功能……"></textarea>', [
+        {label:'提交反馈', primary:true, onClick:function(){ closeModal(); toast('反馈已提交，感谢你帮助品牌成长'); }},
+        {label:'取消', onClick:closeModal}
+      ]);
+    }
+  });
+
+  /* 分享 */
+  function copyText(text){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ toast('链接已复制，可分享给同好'); }, function(){ toast('当前环境不支持自动复制，请手动分享'); });
+    }else{
+      toast('当前环境不支持自动复制，请手动分享');
+    }
+  }
+  doc.addEventListener('click', function(e){
+    var shareBtn = e.target.closest('[data-ovf-share]');
+    if(!shareBtn){ return; }
+    openModal('分享 OVERFLOW 动漫', '<p>把这份关于原创动画的好奇心分享出去，让更多同好一起参与讨论与创作。</p><p style="margin-top:10px;color:#67e8f9">微信 / 微博 / QQ / 复制链接</p>', [
+      {label:'复制链接', primary:true, onClick:function(){ copyText('OVERFLOW 动漫官方网站'); closeModal(); }},
+      {label:'分享到微博', onClick:function(){ closeModal(); toast('已生成分享内容，可前往微博发布'); }},
+      {label:'关闭', onClick:closeModal}
+    ]);
+  });
+})();
+</script>
+</body>
+        </html>
